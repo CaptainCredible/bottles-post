@@ -3,14 +3,14 @@ function RiktigLøsning () {
     radio.sendString("R")
     basic.showString("R",0)
     for (let index = 0; index < 3; index++) {
-        for (let index = 0; index < 20; index++) {
+        for (let index = 0; index < 23; index++) {
             Lysstyrke += -12
             strip.showColor(neopixel.colors(NeoPixelColors.Green))
             strip.setBrightness(Lysstyrke)
             strip.show()
             basic.pause(5)
         }
-        for (let index = 0; index < 20; index++) {
+        for (let index = 0; index < 23; index++) {
             Lysstyrke += 12
             strip.showColor(neopixel.colors(NeoPixelColors.Green))
             strip.setBrightness(Lysstyrke)
@@ -47,8 +47,12 @@ function Spille_på_flaskene (hvilken: number) {
     } else if (hvilken == 2) {
         basic.showNumber(2,0)
         pins.digitalWritePin(DigitalPin.P0, 1)
+        pins.digitalWritePin(DigitalPin.P14, 1)
+
         basic.pause(pulseLength)
         pins.digitalWritePin(DigitalPin.P0, 0)
+        pins.digitalWritePin(DigitalPin.P14, 1)
+
     } else if (hvilken == 3) {
         basic.showNumber(3,0)
         pins.digitalWritePin(DigitalPin.P2, 1)
@@ -68,14 +72,14 @@ function FeilLøsning () {
     //music.playMelody("F C - - - - - - ", 400)
     Lysstyrke = 255
     for (let index = 0; index < 3; index++) {
-        for (let index = 0; index < 20; index++) {
+        for (let index = 0; index < 23; index++) {
             Lysstyrke += -12
             strip.showColor(neopixel.colors(NeoPixelColors.Red))
             strip.setBrightness(Lysstyrke)
             strip.show()
             basic.pause(5)
         }
-        for (let index = 0; index < 20; index++) {
+        for (let index = 0; index < 23; index++) {
             Lysstyrke += 12
             strip.showColor(neopixel.colors(NeoPixelColors.Red))
             strip.setBrightness(Lysstyrke)
@@ -124,7 +128,7 @@ basic.showIcon(IconNames.Heart)
 basic.showIcon(IconNames.SmallHeart,0)
 fremskritt = 0
 riktigSekvens = [3, 1, 4, 2]
-strip = neopixel.create(DigitalPin.P1, 16, NeoPixelMode.RGB)
+strip = neopixel.create(DigitalPin.P1, 24, NeoPixelMode.RGB)
 Mottatt = 0
 radio.setGroup(4)
 Initialize()
